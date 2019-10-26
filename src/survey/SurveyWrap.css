@@ -1,0 +1,28 @@
+.survey-wrap {
+    max-width: 700px;
+    margin: 50px auto 0;
+    padding: 40px;
+    border: 1px solid #c8c8c8;
+    text-align: center;
+}
+
+.survey-wrap .welcome {
+    font-size: 40px;
+    letter-spacing: 7px;
+    margin-bottom: 10px;
+}
+
+.survey-wrap .desc {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.survey-wrap .survey-container {
+    text-align: center;
+}
+
+.survey-wrap .survey-container .survey-question {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+

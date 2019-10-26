@@ -1,4 +1,4 @@
-import { API_BASE_URL, ACCESS_TOKEN } from '../constants';
+import {ACCESS_TOKEN, API_BASE_URL} from '../constants';
 
 const request = (options) => {
     const headers = new Headers({
@@ -67,6 +67,23 @@ export function checkEmailAvailability(email) {
 export function getUserProfile(username) {
     return request({
         url: API_BASE_URL + "/users/" + username,
+        method: 'GET'
+    });
+}
+
+export function getSurveyNode(surveyid) {
+    return request({
+        url: API_BASE_URL + "/survey/" + surveyid,
+        method: 'GET'
+    });
+}
+
+export function getMatchingAgent(primaryservid) {
+    if (!localStorage.getItem(ACCESS_TOKEN)) {
+        return Promise.reject("No access token set.");
+    }
+    return request({
+        url: API_BASE_URL + "/agent/" + primaryservid,
         method: 'GET'
     });
 }

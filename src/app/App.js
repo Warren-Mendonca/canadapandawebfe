@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
-import {
-  Route,
-  withRouter,
-  Switch
-} from 'react-router-dom';
+import {Route, Switch, withRouter} from 'react-router-dom';
 
-import { getCurrentUser } from '../utils/APIUtils';
-import { ACCESS_TOKEN, APP_NAME } from '../constants';
+import {getCurrentUser} from '../utils/APIUtils';
+import {ACCESS_TOKEN, APP_NAME} from '../constants';
 
 import Login from '../user/login/Login';
 import Signup from '../user/signup/Signup';
@@ -16,7 +12,9 @@ import AppHeader from '../common/AppHeader';
 import NotFound from '../common/NotFound';
 import LoadingIndicator from '../common/LoadingIndicator';
 
-import { Layout, notification } from 'antd';
+import {Layout, notification} from 'antd';
+import SurveyWrap from "../survey/SurveyWrap";
+
 const { Content } = Layout;
 
 class App extends Component {
@@ -68,7 +66,7 @@ class App extends Component {
       isAuthenticated: false
     });
 
-    this.props.history.push(redirectTo);
+    this.props.history.replace(redirectTo);
 
     notification[notificationType]({
       message: APP_NAME,
@@ -98,6 +96,11 @@ class App extends Component {
           <Content className="app-content">
             <div className="container">
               <Switch>
+                <Route exact path="/"
+                       render={(props) => <SurveyWrap isAuthenticated={this.state.isAuthenticated}
+                                                      currentUser={this.state.currentUser}
+                                                      handleLogout={this.handleLogout} {...props} />}>
+                </Route>
                 <Route path="/login"
                        render={(props) => <Login onLogin={this.handleLogin} {...props} />}/>
                 <Route path="/signup" component={Signup}/>

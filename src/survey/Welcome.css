@@ -1,4 +1,4 @@
-.page-not-found {
+.welcome-wrap {
     max-width: 500px;
     margin: 50px auto 0;
     padding: 40px;
@@ -6,17 +6,17 @@
     text-align: center;
 }
 
-.page-not-found .title {
-    font-size: 50px;
-    letter-spacing: 10px;
+.welcome-wrap .welcome {
+    font-size: 40px;
+    letter-spacing: 7px;
     margin-bottom: 10px;
 }
 
-.page-not-found .desc {
+.welcome-wrap .desc {
     font-size: 20px;
     margin-bottom: 20px;
 }
 
-.go-back-btn {
+.survey-start-button {
     min-width: 160px;
 }
